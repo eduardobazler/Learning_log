@@ -1,0 +1,26 @@
+{% extends 'learning_logs/base.html' %}
+{% block page_header %}
+    <div class="jumbotron">
+        <h1 class="display-4">Postagens da comunidade.</h1>
+
+    <p class="lead">Nesta página se encontra todos os tópicos de toda a comunidade dos usuários</p>
+
+    </div>
+{% endblock page_header %}
+{% block content %}
+    <ul>
+        {% for topic in topics %}
+            <li>
+                <p></p>
+                <a  href="{% url 'learning_logs:registro_topico' topic.id %}">{{ topic }}
+                    <br>Adicionado em: {{ topic.date_added }}
+
+                </a>
+            </li>
+        {% empty %}
+            <li>Não há tópicos ainda.</li>
+        {% endfor %}
+    </ul>
+
+{% endblock content %}
+
